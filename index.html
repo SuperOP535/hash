@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+    <title>Online Hashing Tool</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.3.1/sha.js" integrity="sha256-XcOFMkURoRKbd1T8rPUG086xwHzXslLdeNEyupN6w1E=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spark-md5/3.0.0/spark-md5.min.js" integrity="sha256-vZfKuqtZrm/miyPulNgpGOT0P57rJDIoGfzzGaMuqfg=" crossorigin="anonymous"></script>
+    <!-- script src="md5.js"></script -->
+    <style>
+        body {
+            font-family: sans-serif;
+            background: cornflowerblue;
+        }
+        
+        h1 {
+            color: aliceblue;
+            text-align: center;
+        }
+        
+        .box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.9);
+            padding: 2em;
+            background: white;
+            border: 2px solid lightgray;
+            border-radius: 4px;
+        }
+        
+        button, input[type=text], select {
+            border-radius: 4px;
+        }
+        
+        input[type=text], textarea {
+            font-family: monospace;
+            border: 1.1px solid rgb(169, 169, 169);
+        }
+        
+        input[type=checkbox] {
+            vertical-align: middle;
+        }
+    
+        #compare, #file2, #text2, #text, #hash2 {
+            display: none;
+        }
+        
+        #hash2 {
+            margin: 3px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Online Hashing Tool</h1>
+    <div class="box">
+        <select id="kind">
+            <option>SHA-1</option>
+            <option>SHA-3</option>
+            <option>SHA-256</option>
+            <option>SHA-512</option>
+            <option>MD5</option>
+        </select>
+        <select id="mode">
+            <option>File</option>
+            <option>Text</option>
+        </select>
+        <label><input type="checkbox" id="compare_on"> Compare</label><br><br>
+        <div id="file">
+            <input type="file" id="file1">
+            <input type="file" id="file2">
+        </div>
+        <div id="text">
+            <textarea id="text1" placeholder="Input 1"></textarea>
+            <textarea id="text2" placeholder="Input 2"></textarea>
+        </div><br>
+        <input type="text" id="hash1" placeholder="Hash 1">
+        <input type="text" id="hash2" placeholder="Hash 2">
+        <button id="hash">Hash</button>
+        <button id="compare">Compare</button>
+        <script src="hash.js"></script>
+    </div>
+</body>
